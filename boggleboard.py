@@ -134,7 +134,7 @@ def check_word():
         clear_stack()
         if push_stack(i_item):            
             if find_next_char(index, i_item):
-                print(f"stack: {stack}")
+                # print(f"stack: {stack}")
                 return True
     return False
 
@@ -164,7 +164,7 @@ def find_next_char(index, pos):
                     if find_next_char(index+1, i_item):
                         return True
                     else:
-                        stack.pop()        
+                        pop_stack()        
     return False
 
 def find_horizontal(index, pos):
@@ -177,7 +177,6 @@ def find_horizontal(index, pos):
         y = pos[0]
         left_x = x-1
         right_x = (x+1)%4
-        char = word[index]
         next_char = word[index+1]
 
         if board[y][left_x] == next_char:
@@ -196,7 +195,6 @@ def find_vertical(index, pos):
         y = pos[0] # vertical along y-axis
         upper_y = y-1
         lower_y = (y+1)%4
-        char = word[index]
         next_char = word[index+1]
 
         if board[upper_y][x] == next_char:
@@ -217,7 +215,6 @@ def find_diagonal(index, pos):
         right_x = (x+1)%4
         upper_y = y-1
         lower_y = (y+1)%4
-        char = word[index]
         next_char = word[index+1]
 
         if board[upper_y][left_x] == next_char:
